@@ -1,6 +1,7 @@
 ﻿void SelectionSortFromMax(int[] arr) // сортировка элементов временного одномерного массива
 {
-    for (int i = 0; i < arr.Length - 1; i++) // мы начинаем с i + 1 (не трогаем отсортированное), а поэтому длина массива уже не array.Length, а array.Length - 1
+    // и чтобы не сортировать лишний раз последний элемент делаем array.Length - 1
+    for (int i = 0; i < arr.Length - 1; i++)
     {
         int maxPosition = i; // запоминаем позицию "рабочего элемента"
         for (int j = i + 1; j < arr.Length; j++)
