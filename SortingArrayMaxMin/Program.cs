@@ -3,15 +3,17 @@
     // и чтобы не сортировать лишний раз последний элемент делаем array.Length - 1
     for (int i = 0; i < arr.Length - 1; i++)
     {
-        int maxPosition = i; // запоминаем позицию "рабочего элемента"
-        for (int j = i + 1; j < arr.Length; j++)
+        int maxPosition = i; // запоминаем ИНДЕКС "рабочего элемента"
+        for (int j = i + 1; j < arr.Length; j++) // ищем максимальный среди элементов, начиная с i + 1
         {
             if (arr[j] > arr[maxPosition])
+            {
                 maxPosition = j;
+            }
         }
-        int temporary = arr[i];
-        arr[i] = arr[maxPosition];
-        arr[maxPosition] = temporary;
+        int temporary = arr[i]; // помещаем рабочий элемент в хранилище 
+        arr[i] = arr[maxPosition]; // на его место ставим новое максимальное 
+        arr[maxPosition] = temporary;  
     }
 }
 
@@ -46,6 +48,6 @@ PrintArray(array);
 
 SelectionSortFromMax(array);
 PrintArray(array);
-SelectionSortFromMin(array);
-PrintArray(array);
+// SelectionSortFromMin(array);
+// PrintArray(array);
 

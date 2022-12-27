@@ -32,11 +32,13 @@ void SelectionSort(int[] arr) // сортировка элементов вре�
 {
     for (int i = 0; i < arr.Length - 1; i++)
     {
-        int maxPosition = i; 
+        int maxPosition = i;
         for (int j = i + 1; j < arr.Length; j++)
         {
             if (arr[j] > arr[maxPosition])
+            {
                 maxPosition = j;
+            }
         }
         int temporary = arr[i];
         arr[i] = arr[maxPosition];
@@ -48,7 +50,7 @@ void SortElementsInRowByDescending(int[,] arr) // сортировка стро�
 {
     for (int i = 0; i < arr.GetLength(0); i++)
     {
-        int[] arrRow = new int[arr.GetLength(1)]; 
+        int[] arrRow = new int[arr.GetLength(1)];
 
         for (int j = 0; j < arr.GetLength(1); j++)
         {
