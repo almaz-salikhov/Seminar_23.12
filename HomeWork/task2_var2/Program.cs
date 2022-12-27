@@ -28,18 +28,27 @@ void ShowArray(int[,] arr)
 
 int FindMinSumRow(int[] arr)
 {
-    int imin = 0;
-    int min = arr[0];
-    for (int i = 1; i < arr.Length; i++)
-    {
-        if (arr[i] < min)
-        {
-            min = arr[i];
-            imin = i;
-        }
-    }
-    int numberOfMinSumRow = imin + 1;
+    int minNumber = arr.Min();
+    int indexMin = Array.IndexOf(arr, minNumber);
+    int numberOfMinSumRow = indexMin + 1;
     return numberOfMinSumRow;
+}
+
+int[] CreateArrayOfSum(int[,] arr)
+{
+    int[] arrayOfSum = new int[arr.GetLength(0)];
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        int sum = 0;
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            sum = sum + arr[i, j];
+        }
+        arrayOfSum[i] = sum;
+    }
+    Console.WriteLine(string.Join(", ", arrayOfSum));
+    Console.WriteLine();
+    return arrayOfSum;
 }
 
 int[,] array = new int[6, 4];
@@ -47,18 +56,5 @@ FillArrayWithRandom(array);
 ShowArray(array);
 Console.WriteLine();
 
-int[] arrayOfSum = new int[array.GetLength(0)];
-for (int i = 0; i < array.GetLength(0); i++)
-{
-    int sum = 0;
-    for (int j = 0; j < array.GetLength(1); j++)
-    {
-        sum = sum + array[i, j];
-    }
-    arrayOfSum[i] = sum;
-    // Console.WriteLine($"Сумма элементов строки с индексом {i} = {sum}");
-}
-Console.WriteLine(string.Join(", ", arrayOfSum));
-Console.WriteLine();
-
-Console.WriteLine($"Номер строки с наименьшей суммой элементов: {FindMinSumRow(arrayOfSum)} ");
+int[] arrayOfSum = CreateArrayOfSum(array);
+Console.WriteLine($"Номер строки с наименьшей суммой элементов: {FindMinSumRow(arrayOfSum)}");
