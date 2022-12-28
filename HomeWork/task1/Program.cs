@@ -28,7 +28,7 @@ void ShowArray(int[,] arr)
     }
 }
 
-void SelectionSort(int[] arr) // сортировка элементов временного одномерного массива
+void SelectionSort(int[] arr) // сортировка элементов временного одномерного массива 
 {
     for (int i = 0; i < arr.Length - 1; i++)
     {
